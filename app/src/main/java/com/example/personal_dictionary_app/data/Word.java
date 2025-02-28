@@ -1,13 +1,10 @@
 package com.example.personal_dictionary_app.data;
 
-import androidx.annotation.NonNull;
-
 import java.time.LocalDate;
 
 public class Word extends Model{
 
-    String word, definition, usage, category;
-    LocalDate date;
+    String word, definition, usage, category, date;
 
     @Override
     public String toString() {
@@ -20,7 +17,7 @@ public class Word extends Model{
                 ", id=" + id +
                 '}';
     }
-    public Word(String word, LocalDate date, String category, String usage, String definition) {
+    public Word(String word, String date, String category, String usage, String definition) {
         this.word = word;
         this.date = date;
         this.category = category;
@@ -60,11 +57,11 @@ public class Word extends Model{
         this.category = category;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
