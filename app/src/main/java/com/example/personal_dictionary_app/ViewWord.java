@@ -51,6 +51,7 @@ public class ViewWord extends AppCompatActivity {
 
             currentWordId = getIntent().getIntExtra("wordId", -1);
 
+
             setData();
             setButtons();
         } catch (Exception err) {
