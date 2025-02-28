@@ -43,7 +43,7 @@ public class ViewWord extends AppCompatActivity {
         try {
             wordTxt = findViewById(R.id.textView6);
             definitionTxt = findViewById(R.id.usageText);
-            usageTxt = findViewById(R.id.textView14);
+            usageTxt = findViewById(R.id.usageText);
             categoryTxt = findViewById(R.id.textView16);
             dateTxt = findViewById(R.id.dateAddedText);
             editBtn = findViewById(R.id.editBtn);
