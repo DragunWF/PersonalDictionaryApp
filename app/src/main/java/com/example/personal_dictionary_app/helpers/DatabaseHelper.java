@@ -28,6 +28,7 @@ public class DatabaseHelper {
     }
 
     public static void addDummydata(){
+        wordBank.clear();
         Date date = new Date();
         Word word = new Word("Effect", date.toString(), "","" ,"");
         Word word2 = new Word("Triple", date.toString(), "Numbering","Triple Digit" ,"The count of three");

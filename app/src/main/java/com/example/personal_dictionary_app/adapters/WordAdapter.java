@@ -106,8 +106,12 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
     public void updateData() {
         ModelBank<Word> wordBank = DatabaseHelper.getWordBank();
+        updateData(wordBank.getAll());
+    }
+
+    public void updateData(List<Word> dataSet) {
         localDataSet.clear();
-        for (Word word : wordBank.getAll()) {
+        for (Word word : dataSet) {
             localDataSet.add(word);
         }
         notifyDataSetChanged();
