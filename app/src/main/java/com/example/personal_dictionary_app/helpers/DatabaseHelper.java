@@ -30,12 +30,12 @@ public class DatabaseHelper {
     public static void addDummydata(){
         wordBank.clear();
         Date date = new Date();
-        Word word = new Word("Effect", date.toString(), "","" ,"");
-        Word word2 = new Word("Triple", date.toString(), "Numbering","Triple Digit" ,"The count of three");
-        Word word3 = new Word("Service", date.toString(), "",
+        Word word = new Word("Effect", date.toString(), "Academic/Technical","" ,"");
+        Word word2 = new Word("Triple", date.toString(), "Literary","Triple Digit" ,"The count of three");
+        Word word3 = new Word("Service", date.toString(), "Business",
                 "The soldier are doing service to their country but fighting in wars" ,
                 "the action of helping or doing work for someone.");
-        Word word4 = new Word("Overview", date.toString(), "Viewpoint",
+        Word word4 = new Word("Overview", date.toString(), "Literary",
                 "This is the overview of the design" ,"a general review or summary of a subject");
         wordBank.add(word);
         wordBank.add(word2);

@@ -70,6 +70,13 @@ public class AddView extends AppCompatActivity {
         wordText.setText(currentWord.getWord());
         descriptionText.setText(currentWord.getDefinition());
         usageText.setText(currentWord.getUsage());
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.categories_array,
+                android.R.layout.simple_spinner_item
+        );
+        categorySpinner.setSelection(adapter.getPosition(currentWord.getCategory()));
     }
 
     private void setButtons() {
