@@ -1,6 +1,8 @@
 package com.example.personal_dictionary_app;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,10 @@ import com.example.personal_dictionary_app.helpers.DatabaseHelper;
 import com.example.personal_dictionary_app.helpers.Utils;
 
 public class ViewWord extends AppCompatActivity {
+
+    private TextView wordTxt, definitionTxt, usageTxt, categoryTxt, dateTxt;
+    private Button editBtn, deleteBtn;
+
     private int currentWordId;
 
     @Override
@@ -27,6 +33,14 @@ public class ViewWord extends AppCompatActivity {
         });
 
         try {
+            wordTxt = findViewById(R.id.textView6);
+            definitionTxt = findViewById(R.id.usageText);
+            usageTxt = findViewById(R.id.textView14);
+            categoryTxt = findViewById(R.id.textView16);
+            dateTxt = findViewById(R.id.dateAddedText);
+            editBtn = findViewById(R.id.editBtn);
+            deleteBtn = findViewById(R.id.deleteBtn);
+
             currentWordId = getIntent().getIntExtra("wordId", -1);
 
             setData();
@@ -38,11 +52,21 @@ public class ViewWord extends AppCompatActivity {
     }
 
     private void setData() {
-        // Pa set lahat ng textview dito, Isaac
         Word word = DatabaseHelper.getWordBank().get(currentWordId);
+
+        wordTxt.setText(word.getWord());
+        definitionTxt.setText(word.getDefinition());
+        usageTxt.setText(word.getUsage());
+        categoryTxt.setText(word.getCategory());
+        dateTxt.setText(word.getDate());
     }
 
     private void setButtons() {
+        editBtn.setOnClickListener(v -> {
 
+        });
+        deleteBtn.setOnClickListener(v -> {
+
+        });
     }
 }
