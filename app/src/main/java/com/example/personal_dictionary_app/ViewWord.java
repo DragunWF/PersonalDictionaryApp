@@ -1,5 +1,6 @@
 package com.example.personal_dictionary_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -63,7 +64,7 @@ public class ViewWord extends AppCompatActivity {
 
     private void setButtons() {
         editBtn.setOnClickListener(v -> {
-
+            startActivity(new Intent(this, EditView.class));
         });
         deleteBtn.setOnClickListener(v -> {
 
