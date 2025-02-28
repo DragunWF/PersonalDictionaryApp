@@ -1,13 +1,8 @@
 package com.example.personal_dictionary_app.services;
 
-import android.provider.ContactsContract;
-
 import com.example.personal_dictionary_app.data.Word;
 import com.example.personal_dictionary_app.helpers.DatabaseHelper;
 import com.example.personal_dictionary_app.helpers.ModelBank;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class WordService {
     public static void addWord(Word word) {
