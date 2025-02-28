@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.personal_dictionary_app.data.Word;
 import com.example.personal_dictionary_app.helpers.DatabaseHelper;
 import com.example.personal_dictionary_app.helpers.Utils;
+import com.example.personal_dictionary_app.services.WordService;
 
 public class ViewWord extends AppCompatActivity {
 
@@ -21,6 +22,12 @@ public class ViewWord extends AppCompatActivity {
     private Button editBtn, deleteBtn;
 
     private int currentWordId;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setData();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +71,14 @@ public class ViewWord extends AppCompatActivity {
 
     private void setButtons() {
         editBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this, EditView.class));
+            Intent intent = new Intent(this, AddView.class);
+            intent.putExtra("wordId", currentWordId);
+            startActivity(intent);
         });
         deleteBtn.setOnClickListener(v -> {
-
+            WordService.deleteWord(currentWordId);
+            Utils.longToast("Word has been deleted!", ViewWord.this);
+            finish();
         });
     }
 }

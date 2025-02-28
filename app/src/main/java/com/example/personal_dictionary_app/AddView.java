@@ -53,6 +53,7 @@ public class AddView extends AppCompatActivity {
             currentWordId = getIntent().getIntExtra("wordId", -1);
             boolean isEditForm = currentWordId != -1;
             if (isEditForm) {
+                createBtn.setText("Edit");
                 autoFillFields();
             }
 

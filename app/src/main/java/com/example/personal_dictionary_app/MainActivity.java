@@ -1,5 +1,6 @@
 package com.example.personal_dictionary_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             wordRecycler = findViewById(R.id.wordRecycler);
 
-            addBtn = findViewById(R.id.button);
+            addBtn = findViewById(R.id.addBtn);
             searchBar = findViewById(R.id.searchView);
             categorySpinner = findViewById(R.id.spinner);
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setButtons() {
         addBtn.setOnClickListener(view -> {
-
+            startActivity(new Intent(MainActivity.this, AddView.class));
         });
     }
 
