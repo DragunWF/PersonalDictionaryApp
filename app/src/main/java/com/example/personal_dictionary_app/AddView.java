@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.personal_dictionary_app.data.Word;
+import com.example.personal_dictionary_app.helpers.DatabaseHelper;
 import com.example.personal_dictionary_app.helpers.Utils;
 import com.example.personal_dictionary_app.services.WordService;
 
@@ -24,6 +25,8 @@ public class AddView extends AppCompatActivity {
     private EditText wordText, descriptionText, usageText;
     private Button createBtn;
     private Spinner categorySpinner;
+
+    private int currentWordId; // -1 if the user is adding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,8 @@ public class AddView extends AppCompatActivity {
         });
 
         try {
+            DatabaseHelper.initialize(this);
+
             createBtn = findViewById(R.id.createBtn);
 
             wordText = findViewById(R.id.wordText);
@@ -45,12 +50,25 @@ public class AddView extends AppCompatActivity {
 
             categorySpinner = findViewById(R.id.categorySpinner);
 
+            currentWordId = getIntent().getIntExtra("wordId", -1);
+            boolean isEditForm = currentWordId != -1;
+            if (isEditForm) {
+                autoFillFields();
+            }
+
             setButtons();
             setSpinner();
         } catch (Exception err) {
             err.printStackTrace();
             Utils.longToast(err.getMessage(), this);
         }
+    }
+
+    private void autoFillFields() {
+        Word currentWord = DatabaseHelper.getWordBank().get(currentWordId);
+        wordText.setText(currentWord.getWord());
+        descriptionText.setText(currentWord.getDefinition());
+        usageText.setText(currentWord.getUsage());
     }
 
     private void setButtons() {
