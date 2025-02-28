@@ -23,14 +23,29 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
      * (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-//        private final TextView textView;
+//        private final TextView wordText;
+//        private final TextView dateAddedText;
+//        private final TextView categoryText;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-
-//            textView = (TextView) view.findViewById(R.id.textView);
+//            wordText = view.findViewById(R.id.textView);
+//            dataAddedText = view.findViewById(R.id.);
+//            categoryText = view.findViewById(R.id.);
         }
+
+//        public TextView getWordText() {
+//            return wordText;
+//        }
+//
+//        public TextView getDateAddedText() {
+//            return dateAddedText;
+//        }
+//
+//        public TextView getCategoryText() {
+//            return categoryText;
+//        }
     }
 
     /**
