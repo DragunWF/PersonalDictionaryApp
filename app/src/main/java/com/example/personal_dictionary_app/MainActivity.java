@@ -134,17 +134,21 @@ public class MainActivity extends AppCompatActivity {
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = parent.getItemAtPosition(position).toString();
+                if (position > 0) {
+                    String selected = parent.getItemAtPosition(position).toString();
 
-                List<Word> words = DatabaseHelper.getWordBank().getAll();
-                List<Word> results = new ArrayList<>();
-                for (Word word : words) {
-                    if (word.getCategory().equals(selected)) {
-                        results.add(word);
+                    List<Word> words = DatabaseHelper.getWordBank().getAll();
+                    List<Word> results = new ArrayList<>();
+                    for (Word word : words) {
+                        if (word.getCategory().equals(selected)) {
+                            results.add(word);
+                        }
                     }
-                }
 
-                wordAdapter.updateData(results);
+                    wordAdapter.updateData(results);
+                } else {
+                    wordAdapter.updateData(DatabaseHelper.getWordBank().getAll());
+                }
             }
 
             @Override

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Personal-Dictionary-App</string>
     <string-array name="categories_array">
+        <item>Any</item>
         <item>Academic/Technical</item>
         <item>Literary</item>
         <item>Conversational</item>
@@ -8,6 +9,5 @@
         <item>Foreign Language</item>
         <item>Idiomatic</item>
         <item>Personal Interest</item>
-        <item>Uncategorized</item>
     </string-array>
 </resources>

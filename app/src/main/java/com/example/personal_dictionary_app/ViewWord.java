@@ -64,7 +64,7 @@ public class ViewWord extends AppCompatActivity {
 
         wordTxt.setText(word.getWord());
         definitionTxt.setText(word.getDefinition());
-        usageTxt.setText(word.getUsage());
+        usageTxt.setText(word.getUsage().isEmpty() ? "None" : word.getUsage());
         categoryTxt.setText(word.getCategory());
         dateTxt.setText(word.getDate());
     }
