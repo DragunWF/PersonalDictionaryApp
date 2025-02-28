@@ -1,6 +1,7 @@
 package com.example.personal_dictionary_app.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.personal_dictionary_app.R;
+import com.example.personal_dictionary_app.ViewWord;
 import com.example.personal_dictionary_app.data.Word;
 import com.example.personal_dictionary_app.helpers.DatabaseHelper;
 import com.example.personal_dictionary_app.helpers.ModelBank;
@@ -95,7 +97,9 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
         viewHolder.getDateAddedText().setText(word.getDate().toString());
         viewHolder.getCategoryText().setText(word.getCategory());
         viewHolder.getViewBtn().setOnClickListener(v -> {
-
+            Intent intent = new Intent(context, ViewWord.class);
+            intent.putExtra("wordId", word.getId());
+            context.startActivity(intent);
         });
         viewHolder.getDeleteBtn().setOnClickListener(v -> {
             WordService.deleteWord(word.getId());
