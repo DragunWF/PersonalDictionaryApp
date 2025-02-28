@@ -89,14 +89,14 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/usageText"
+                    android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Usage: "
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/usageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
