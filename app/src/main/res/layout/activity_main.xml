@@ -25,6 +25,7 @@
             android:padding="20dp">
 
             <SearchView
+                android:id="@+id/searchView"
                 android:layout_width="200dp"
                 android:layout_height="48dp"
                 android:background="@color/white" />
