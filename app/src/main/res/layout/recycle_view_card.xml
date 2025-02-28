@@ -19,7 +19,8 @@
                 android:id="@+id/wordText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Word" />
+                android:text="Word"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/dateAddedText"

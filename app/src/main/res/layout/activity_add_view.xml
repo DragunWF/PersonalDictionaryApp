@@ -44,6 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Word:"
+                    android:textStyle="bold"
                     android:textSize="16sp"/>
 
                 <EditText
@@ -59,6 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description:"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
 
                 <EditText
@@ -74,6 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Usage:"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
 
                 <EditText
@@ -89,6 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Category:"
+                    android:textStyle="bold"
                     android:textSize="16dp"/>
 
                 <Spinner

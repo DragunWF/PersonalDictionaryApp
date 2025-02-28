@@ -65,7 +65,8 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Word: " />
+                        android:text="Word: "
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView6"
@@ -78,7 +79,8 @@
                     android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Definition: " />
+                    android:text="Definition: "
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/definitionText"
@@ -90,7 +92,8 @@
                     android:id="@+id/usageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Usage: " />
+                    android:text="Usage: "
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/textView14"
@@ -102,7 +105,8 @@
                     android:id="@+id/categoryText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Category: " />
+                    android:text="Category: "
+                    android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="match_parent"
@@ -113,7 +117,8 @@
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Date Added:" />
+                    android:text="Date Added:"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/dateAddedText"
