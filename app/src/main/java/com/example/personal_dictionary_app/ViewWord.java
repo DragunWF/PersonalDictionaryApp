@@ -1,11 +1,13 @@
 package com.example.personal_dictionary_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -77,9 +79,24 @@ public class ViewWord extends AppCompatActivity {
             startActivity(intent);
         });
         deleteBtn.setOnClickListener(v -> {
-            WordService.deleteWord(currentWordId);
-            Utils.longToast("Word has been deleted!", ViewWord.this);
-            finish();
+            AlertDialog.Builder builder = new AlertDialog.Builder(ViewWord.this);
+
+            builder.setMessage("Are you sure you want to delete this word?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    WordService.deleteWord(currentWordId);
+                    Utils.longToast("Word has been deleted!", ViewWord.this);
+                    finish();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Utils.toast("Cancelled", ViewWord.this);
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
         });
     }
 }

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private WordAdapter wordAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    private FragmentManager supportFragmentManager;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             DatabaseHelper.initialize(this);
             DatabaseHelper.addDummydata();
+            supportFragmentManager = getSupportFragmentManager();
 
             wordRecycler = findViewById(R.id.wordRecycler);
 

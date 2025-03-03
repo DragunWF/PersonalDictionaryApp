@@ -1,6 +1,7 @@
 package com.example.personal_dictionary_app.adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.personal_dictionary_app.R;
@@ -102,9 +105,24 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
             context.startActivity(intent);
         });
         viewHolder.getDeleteBtn().setOnClickListener(v -> {
-            WordService.deleteWord(word.getId());
-            Utils.toast(word.getWord() + " has been deleted!", context);
-            updateData();
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("Are you sure you want to delete this word?");
+
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    WordService.deleteWord(word.getId());
+                    Utils.toast(word.getWord() + " has been deleted!", context);
+                    updateData();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Utils.toast("Deletion has been cancelled!", context);
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
         });
     }
 
