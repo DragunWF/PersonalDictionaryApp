@@ -19,7 +19,7 @@ import com.example.personal_dictionary_app.services.WordService;
 
 import java.util.Date;
 
-public class AddView extends AppCompatActivity {
+public class AddEditView extends AppCompatActivity {
     private final int CHAR_LIMIT = 500;
 
     private EditText wordText, descriptionText, usageText;
@@ -27,6 +27,7 @@ public class AddView extends AppCompatActivity {
     private Spinner categorySpinner;
 
     private int currentWordId; // -1 if the user is adding
+    private boolean isEditForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +47,12 @@ public class AddView extends AppCompatActivity {
 
             wordText = findViewById(R.id.wordText);
             descriptionText = findViewById(R.id.descriptionText);
-            usageText = findViewById(R.id.descriptionText);
+            usageText = findViewById(R.id.usageText);
 
             categorySpinner = findViewById(R.id.categorySpinner);
 
             currentWordId = getIntent().getIntExtra("wordId", -1);
-            boolean isEditForm = currentWordId != -1;
+            isEditForm = currentWordId != -1;
             if (isEditForm) {
                 createBtn.setText("Edit");
                 autoFillFields();
@@ -70,13 +71,6 @@ public class AddView extends AppCompatActivity {
         wordText.setText(currentWord.getWord());
         descriptionText.setText(currentWord.getDefinition());
         usageText.setText(currentWord.getUsage());
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.categories_array,
-                android.R.layout.simple_spinner_item
-        );
-        categorySpinner.setSelection(adapter.getPosition(currentWord.getCategory()));
     }
 
     private void setButtons() {
@@ -87,20 +81,31 @@ public class AddView extends AppCompatActivity {
             String category = categorySpinner.getSelectedItem().toString();
 
             if (word.isEmpty() || description.isEmpty()) {
-                Utils.longToast("Do not leave any of the fields empty!", AddView.this);
+                Utils.longToast("Do not leave any of the fields empty!", AddEditView.this);
                 return;
             }
 
             int[] lengths = { word.length(), description.length(), usage.length() };
             for (int dataLength : lengths) {
                 if (dataLength > CHAR_LIMIT) {
-                    Utils.longToast("The number of characters on the input fields should not exceed " + CHAR_LIMIT + " characters!", AddView.this);
+                    Utils.longToast("The number of characters on the input fields should not exceed " + CHAR_LIMIT + " characters!", AddEditView.this);
                     return;
                 }
             }
 
-            WordService.addWord(new Word(word, new Date().toString(), category, usage, description));
-            Utils.longToast(word + " has been added to your personal dictionary!", AddView.this);
+            if (isEditForm) {
+                Word wordObj = DatabaseHelper.getWordBank().get(currentWordId);
+                wordObj.setWord(wordText.getText().toString());
+                wordObj.setDefinition(descriptionText.getText().toString());
+                wordObj.setUsage(usageText.getText().toString());
+                wordObj.setCategory(categorySpinner.getSelectedItem().toString());
+                WordService.editWord(wordObj);
+                Utils.longToast(word + " has been updated!", AddEditView.this);
+            } else {
+                WordService.addWord(new Word(word, new Date().toString(), category, usage, description));
+                Utils.longToast(word + " has been added to your personal dictionary!", AddEditView.this);
+            }
+
             finish();
         });
     }
@@ -116,5 +121,10 @@ public class AddView extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner.
         categorySpinner.setAdapter(adapter);
+
+        if (isEditForm) {
+            Word currentWord = DatabaseHelper.getWordBank().get(currentWordId);
+            categorySpinner.setSelection(adapter.getPosition(currentWord.getCategory()));
+        }
     }
 }

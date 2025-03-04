@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setButtons() {
         addBtn.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, AddView.class));
+            startActivity(new Intent(MainActivity.this, AddEditView.class));
         });
     }
 

@@ -53,7 +53,6 @@ public class ViewWord extends AppCompatActivity {
 
             currentWordId = getIntent().getIntExtra("wordId", -1);
 
-
             setData();
             setButtons();
         } catch (Exception err) {
@@ -74,7 +73,7 @@ public class ViewWord extends AppCompatActivity {
 
     private void setButtons() {
         editBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddView.class);
+            Intent intent = new Intent(this, AddEditView.class);
             intent.putExtra("wordId", currentWordId);
             startActivity(intent);
         });
