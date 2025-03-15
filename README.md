@@ -13,28 +13,6 @@
 ✅ Auto-record the date when each word is added  
 ✅ Data persists between app sessions
 
-## 📸 Screenshots
-
-### Word List View
-
-<div class="image-container">
-    <img src="img/WordList.png" alt="Word List View" width="300"/>
-    <img src="img/SearchResults.png" alt="Search Results" width="300"/>
-</div>
-
-### Add/Edit Word
-
-<div class="image-container">
-    <img src="img/AddWord.png" alt="Add New Word" width="300"/>
-    <img src="img/EditWord.png" alt="Edit Word" width="300"/>
-</div>
-
-### Word Details
-
-<div class="image-container">
-    <img src="img/WordDetail.png" alt="Word Detail View" width="300"/>
-</div>
-
 ## 🛠️ Technical Details
 
 - Built with Java for Android
