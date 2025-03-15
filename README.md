@@ -43,7 +43,7 @@ git clone https://github.com/DragunWF/PersonalDictionary.git
 
 ## 👥 Development Challenge
 
-This app was created as a 2-hour hackathon project by a team of three developers focusing on:
+This app was created as a 2-hour hackathon practice project by a team of three developers focusing on:
 
 - Core functionality implementation
 - Data persistence using SharedPreferences and GSON
