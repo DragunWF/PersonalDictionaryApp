@@ -25,7 +25,7 @@
 1️⃣ Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/PersonalDictionary.git
+git clone https://github.com/DragunWF/PersonalDictionary.git
 ```
 
 2️⃣ Open **Android Studio** and select **Open an Existing Project**
